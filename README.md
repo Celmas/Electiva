@@ -1,4 +1,9 @@
-# electiva
+# Electiva
+
+## Description
+``` 
+Mimimal Valuable Project of Electiva
+```
 
 ## Project setup
 ```
