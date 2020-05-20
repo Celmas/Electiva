@@ -5,32 +5,54 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     actions: {
-        fetchPosts({commit}) {
-            const posts = [];
-            commit('updatePosts', posts)
+        fetchElectivas({commit}) {
+            const electivas = [{
+                title: "Школа единоборств",
+                text: "Лучшая школа для подпольных боев района",
+                img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+                category: "Секции",
+                reviews: [],
+                rating: 4
+            },{
+                title: "Школа аглийского языка",
+                text: "Начни шпрехать по иностраному в кратчайшие сроки",
+                img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+                category: "Секции",
+                reviews: [],
+                rating: 4
+            },{
+                title: "Репетитор по татарскому",
+                text: "Научи ругаться по татарски, все будут в шоке!",
+                img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+                category: "Репетиторы",
+                reviews: [],
+                rating: 4
+            }];
+            commit('updateElectivas', electivas)
         }
     },
     mutations: {
-        updatePosts(state, posts) {
-            state.posts = posts
+        setCurrentElectiva(state, index) {
+            state.currentElectiva = index
         },
-        createPost(state, newPost) {
-            state.posts.unshift(newPost)
+        updateElectivas(state, electivas) {
+            state.electivas = electivas
         },
         setDrawer(state, drawer) {
             state.drawer = drawer
         }
     },
     state: {
-        posts: [],
-        drawer: true
+        drawer: true,
+        electivas: [],
+        currentElectiva: null
     },
     getters: {
-        allPosts(state) {
-            return state.posts
+        getCurrentElectiva(state) {
+            return state.currentElectiva
         },
-        postsCount(state, getters) {
-            return getters.allPosts.length
+        getAllElectivas(state) {
+            return state.electivas
         },
         getDrawer: state => state.drawer
     }
