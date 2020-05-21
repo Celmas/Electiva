@@ -7,6 +7,14 @@
                     <v-card-title>
                         {{ electiva.title }}
                     </v-card-title>
+                    <v-card-subtitle>
+                        <v-rating
+                                :value=electiva.rating
+                                dense
+                                small
+                                half-increments
+                        ></v-rating>
+                    </v-card-subtitle>
 
                     <v-card-text>
                         {{ electiva.text }}
@@ -14,7 +22,7 @@
                 </v-col>
                 <v-col cols="4" align="right">
                     <v-img
-                            class="white--text"
+                            class="white--text mr-4"
                             max-width="150px"
                             max-height="150px"
                             :src='electiva.img'
