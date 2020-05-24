@@ -26,7 +26,7 @@
         components: {ElectivaItem},
         methods: {
             goToElectiva(index) {
-                this.$store.commit("setCurrentElectiva", this.$props.electivas[index])
+                this.$store.commit("setCurrentElectiva", index)
                 this.$router.push('/electiva')
             }
         }

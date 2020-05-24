@@ -30,7 +30,7 @@
                                 </v-card-text>
                                 <template v-for="(review) in electiva.reviews">
                                     <v-list-item
-                                            :key="review.author"
+                                            :key="review.id"
 
                                     >
                                         <v-list-item-avatar>
@@ -122,16 +122,16 @@
         methods: {
             saveReview() {
                 const review = {
+                    id: this.electiva.reviews.length,
                     author: "Ильнур",
                     text: this.review,
                     rate: this.rating,
                     avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg"
                 };
                 this.electiva.reviews.push(review);
-                this.$store.commit("updateElectivas", this.electiva);
+                this.$store.commit("updateElectiva", this.electiva);
                 this.rating = 0;
                 this.review = "";
-                this.electiva = this.$store.getters.getCurrentElectiva
             }
         }
     }

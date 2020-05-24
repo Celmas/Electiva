@@ -45,7 +45,7 @@
                         v-else
                         :key="item.text"
                         link
-                        @click="$router.push('/profile')"
+                        @click="$router.push(item.link)"
                 >
                     <v-list-item-action>
                         <v-icon>{{ item.icon }}</v-icon>
@@ -69,10 +69,10 @@
         },
         data: () => ({
             items: [
-                { icon: 'mdi-contacts', text: 'Мой профиль' },
-                { icon: 'mdi-history', text: 'Репетиторы' },
-                { icon: 'mdi-content-copy', text: 'Секции' },
-                { icon: 'mdi-settings', text: 'Выход' }
+                { icon: 'mdi-contacts', text: 'Мой профиль', link: '/profile' },
+                { icon: 'mdi-history', text: 'Репетиторы', link: '/home' },
+                { icon: 'mdi-content-copy', text: 'Секции', link: '/home'},
+                { icon: 'mdi-settings', text: 'Выход', link: '/'}
             ],
         }),
         computed: {
