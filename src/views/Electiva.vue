@@ -54,10 +54,11 @@
                         >
                             Местоположение
                         </v-card-text>
-                        <v-img
-                                class="mr-4"
-                                src="https://www.google.com/maps/d/thumbnail?mid=1N6j-_SrRjZO7t2lL7hmchg3na68&hl=ru"
-                        ></v-img>
+                        <gmaps-map
+                                class="map"
+                                :options="mapOptions">
+                            <gmaps-marker :position="electiva.position"/>
+                        </gmaps-map>
                     </v-col>
                 </v-row>
                 <v-row align-content="center" justify="center">
@@ -91,9 +92,6 @@
                     </v-col>
 
                 </v-row>
-                <v-row>
-
-                </v-row>
             </v-card>
 
         </v-content>
@@ -105,6 +103,7 @@
     import AppBar from "../components/AppBar";
     import NavDrawer from "../components/NavDrawer";
     import Footer from "../components/Footer";
+    import {gmapsMap, gmapsMarker} from 'x5-gmaps'
 
     export default {
         name: "Electiva",
@@ -112,11 +111,15 @@
             return {
                 electiva: null,
                 rating: 0,
-                review: ''
+                review: '',
+                mapOptions: {
+                    center: {lat: 55.788707, lng: 49.121541},
+                    zoom: 14,
+                }
             }
         },
-        components: {Footer, NavDrawer, AppBar},
-        mounted() {
+        components: {Footer, NavDrawer, AppBar, gmapsMap, gmapsMarker},
+        created() {
             this.electiva = this.$store.getters.getCurrentElectiva
         },
         methods: {
@@ -156,5 +159,11 @@
 </script>
 
 <style scoped>
-
+    .map {
+        border: 2px ridge silver;
+        background: #eee;
+        margin: auto;
+        height: 300px;
+        width: 280px;
+    }
 </style>

@@ -37,6 +37,7 @@ export default new Vuex.Store({
             text: "Лучшая школа для подпольных боев района",
             img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
             category: "Секции",
+            position: {lat: 55.788460, lng: 49.119852 },
             reviews: [{
                 id: 0,
                 author: "Ильнур",
@@ -63,6 +64,7 @@ export default new Vuex.Store({
             text: "Начни шпрехать по иностраному в кратчайшие сроки",
             img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
             category: "Секции",
+            position: {lat: 55.788000, lng: 49.119899 },
             reviews: [],
             rating: 4.1
         }, {
@@ -71,6 +73,7 @@ export default new Vuex.Store({
             text: "Научи ругаться по татарски, все будут в шоке!",
             img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
             category: "Репетиторы",
+            position: {lat: 55.788411, lng: 49.119823 },
             reviews: [],
             rating: 4.7
         }],
