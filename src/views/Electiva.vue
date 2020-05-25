@@ -121,6 +121,14 @@
         },
         methods: {
             saveReview() {
+                if (this.review.length < 30) {
+                    alert("Отзыв должен быть больше 30 символов")
+                    return
+                } else if (this.rating === 0) {
+                    alert("Поставьте оценку")
+                    return;
+                }
+
                 const review = {
                     id: this.electiva.reviews.length,
                     author: "Ильнур",
@@ -130,6 +138,16 @@
                 };
                 this.electiva.reviews.push(review);
                 this.$store.commit("updateElectiva", this.electiva);
+                const feed = {
+                    img: this.electiva.img,
+                    text: 'Оставлен отзыв в '
+                        .concat(new Date().getHours().toString())
+                        .concat(':')
+                        .concat(new Date().getMinutes().toString()),
+                    title: this.electiva.title,
+                    electiva_id: this.electiva.id
+                }
+                this.$store.commit("updateFeed", feed);
                 this.rating = 0;
                 this.review = "";
             }

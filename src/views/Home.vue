@@ -29,7 +29,6 @@
             Footer
         },
         mounted() {
-            this.$store.dispatch("fetchElectivas");
             this.electivas = this.$store.getters.getAllElectivas;
         }
     }
