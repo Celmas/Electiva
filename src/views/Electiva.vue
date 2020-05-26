@@ -140,6 +140,12 @@
                     avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg"
                 };
                 this.electiva.reviews.push(review);
+                let new_rating = 0
+                for (let i = 0; i < this.electiva.reviews.length; i++) {
+                    new_rating += this.electiva.reviews[i].rate
+                }
+                new_rating /= this.electiva.reviews.length
+                this.electiva.rating = new_rating
                 this.$store.commit("updateElectiva", this.electiva);
                 const feed = {
                     img: this.electiva.img,

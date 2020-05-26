@@ -26,7 +26,5 @@ export default new VueRouter({
             path: '/',
             component: Main
         }
-
-
     ]
 })
